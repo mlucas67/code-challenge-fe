@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Code Challenge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Covert</h1>
+<form action="#" th:action="@{/convert}" th:object="${rang}" method="post">
+    <p>Min: <input type="text" th:field="*{min}" /></p>
+    <p>Max: <input type="text" th:field="*{max}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+<p>Output: </p>
+<p th:text="${result.toString()}"/>
+<table border="1">
+    <tr th:each="elem: ${result.getResult()}">
+        <span th:each="kv: ${elem}">
+            <td th:text="${kv.key}"/>
+            <td th:text="${kv.value}"/>
+        </span>
+    </tr>
+</table>
+</body>
+</html>
